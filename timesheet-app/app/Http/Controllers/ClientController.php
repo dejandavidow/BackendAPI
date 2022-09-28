@@ -3,96 +3,44 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
+use Illuminate\Support\Facades\DB;
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function GetClients()
     {
-        return Client::all();
+        return DB::table('clients')->paginate(5);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function GetClient($id)
     {
-        //
+        return DB::table('clients')->find($id);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function PostClient(Request $request)
     {
-        $client = new Client;
-        $client->clientname = $request->clientname;
-        $client->adress = $request->adress;
-        $client->city = $request->city;
-        $client->postalcode = $request->postalcode;
-        $client->country = $request->country;
-        $client->save();
+        return DB::table('clients')->insert([
+            'clientname' => $request->clientname,
+            'adress' => $request->adress,
+            'city' => $request->city,
+            'postalcode' => $request->postalcode,
+            'country' => $request->country,
+        ]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function UpdateClient(Request $request,$id)
     {
-        $client = Client::find($id);
-        return $client;
+        return DB::table('clients')->where('id',$id)->update([
+            'clientname' => $request->clientname,
+            'adress' => $request->adress,
+            'city' => $request->city,
+            'postalcode' => $request->postalcode,
+            'country' => $request->country,
+        ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function DeleteClient($id)
     {
-        //
+        return DB::table('clients')->where('id',$id)->delete();
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function Search(Request $request)
     {
-        $client = Client::find($id);
-        $client->clientname = $request->clientname;
-        $client->adress = $request->adress;
-        $client->city = $request->city;
-        $client->postalcode = $request->postalcode;
-        $client->country = $request->country;
-        $client->save();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $client = Client::find($id);
-        $client->delete();
+        $querystring = $request->query('search');
+        return DB::table('clients')->where('clientname','LIKE','%'.$querystring.'%')->get();
     }
 }
