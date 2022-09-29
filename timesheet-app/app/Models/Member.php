@@ -11,10 +11,10 @@ class Member extends Model
     public $timestamps = false;
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class,'project_id');
     }
     public function clients()
     {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class,'client_id');
     }
 }

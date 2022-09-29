@@ -35,3 +35,21 @@ Route::put('/Clients/{id}',[ClientController::class,'UpdateClient']);
 Route::delete('/Clients/{id}',[ClientController::class,'DeleteClient']);
 Route::get('/Search/Clients',[ClientController::class,'Search']);
 
+Route::get('/Members',[MemberController::class,'GetMembers']);
+Route::get('/Members/{id}',[MemberController::class,'GetMember']);
+Route::post('/Members',[MemberController::class,'PostMember']);
+Route::put('/Members/{id}',[MemberController::class,'UpdateMember']);
+Route::delete('/Members/{id}',[MemberController::class,'DeleteMember']);
+Route::get('/Search/Members',[MemberController::class,'SearchMembers']);
+
+Route::get('/Projects',[ProjectController::class,'GetProjects']);
+Route::get('/Projects/{id}',[ProjectController::class,'GetProject']);
+Route::post('/Projects',[ProjectController::class,'PostProject']);
+Route::put('/Projects/{id}',[ProjectController::class,'UpdateProject']);
+Route::delete('/Projects/{id}',[ProjectController::class,'DeleteProject']);
+Route::get('/Search/Projects',[ProjectController::class,'SearchProjects']);
+
+Route::get('/Timesheets',[TimesheetController::class,'GetTimesheets']);
+Route::get('/Timesheets/{id}',[TimesheetController::class,'GetTimesheet']);
+Route::post('/Timesheets',[TimesheetController::class,'PostTimesheet']);
+

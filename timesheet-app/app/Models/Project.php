@@ -9,11 +9,11 @@ class Project extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    public function clients()
+    public function client()
     {
         return $this->belongsTo(Client::class);
     }
-    public function members()
+    public function member()
     {
         return $this->belongsTo(Member::class);
     }
