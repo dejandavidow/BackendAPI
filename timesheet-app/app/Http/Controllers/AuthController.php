@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 class AuthController extends Controller
 {
-    public function register()
-    {
-
-    }
-    public function login()
-    {
-
-    }
     public function createUser(Request $request)
     {
         try {
@@ -39,7 +31,11 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password)
+                'password' => Hash::make($request->password),
+                'username' => $request->username,
+                'hours' => $request->hours,
+                'status' => $request->status,
+                'role' => $request->role
             ]);
 
             return response()->json([
