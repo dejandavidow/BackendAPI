@@ -22,12 +22,12 @@ use App\Http\Controllers\AuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/Categories',[CategoryController::class,'GetCategories'])->middleware('auth:sanctum');
-Route::get('/Categories/{id}',[CategoryController::class,'GetCategory'])->middleware('auth:sanctum');;
-Route::post('/Categories',[CategoryController::class,'PostCategory'])->middleware('auth:sanctum');;
-Route::put('/Categories/{id}',[CategoryController::class,'UpdateCategory'])->middleware('auth:sanctum');;
-Route::delete('/Categories/{id}',[CategoryController::class,'DeleteCategories'])->middleware('auth:sanctum');;
-Route::get('Search',[CategoryController::class,'Search'])->middleware('auth:sanctum');;
+Route::get('/Categories',[CategoryController::class,'GetCategories']);
+Route::get('/Categories/{id}',[CategoryController::class,'GetCategory']);
+Route::post('/Categories',[CategoryController::class,'PostCategory']);
+Route::put('/Categories/{id}',[CategoryController::class,'UpdateCategory']);
+Route::delete('/Categories/{id}',[CategoryController::class,'DeleteCategory']);
+Route::get('Search',[CategoryController::class,'Search']);
 
 Route::get('/Clients',[ClientController::class,'GetClients'])->middleware('auth:sanctum');;
 Route::get('/Clients/{id}',[ClientController::class,'GetClient'])->middleware('auth:sanctum');;

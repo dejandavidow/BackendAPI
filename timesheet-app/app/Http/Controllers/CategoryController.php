@@ -31,6 +31,6 @@ class CategoryController extends Controller
     public function Search(Request $request)
     {
         $querystring = $request->query('search');
-        return DB::table('clients')->where('categoryname','LIKE','%'.$querystring.'%')->get();
+        return DB::table('categories')->where('categoryname','LIKE','%'.$querystring.'%')->paginate(5);
     }
 }
