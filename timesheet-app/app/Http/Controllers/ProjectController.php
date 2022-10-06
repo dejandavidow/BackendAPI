@@ -12,9 +12,9 @@ class ProjectController extends Controller
     //   return $member->projects()->get();
     //return DB::table('projects')->join('members','projects.member_id','=','members.id')->get(['projects.id','projects.projectname','members.fullname']);
     return DB::table('projects')
-    ->join('members','projects.member_id','=','members.id')
+    ->join('users','projects.member_id','=','users.id')
     ->join('clients','projects.client_id','=','clients.id')
-    ->get(['projects.*','members.fullname','members.username','members.email','members.status','members.role','members.hours',
+    ->get(['projects.*','users.name','users.username','users.email','users.status','users.role','users.hours',
     'clients.clientname','clients.adress','clients.city','clients.postalcode','clients.country'
     ]);
     }
@@ -22,9 +22,9 @@ class ProjectController extends Controller
     {
         return DB::table('projects')
         ->where('projects.id',$id)
-        ->join('members','projects.member_id','=','members.id')
+        ->join('users','projects.member_id','=','users.id')
         ->join('clients','projects.client_id','=','clients.id')
-        ->get(['projects.*','members.fullname','members.username','members.email','members.status','members.role','members.hours',
+        ->get(['projects.*','users.fullname','users.username','users.email','users.status','users.role','users.hours',
         'clients.clientname','clients.adress','clients.city','clients.postalcode','clients.country'
         ]);
     }

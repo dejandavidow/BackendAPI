@@ -13,12 +13,13 @@ class TimesheetController extends Controller
     ->join('projects','timesheets.project_id','=','projects.id')
     ->join('categories','timesheets.category_id','=','categories.id')
     ->join('clients','timesheets.client_id','=','clients.id')
-    ->join('members','projects.member_id','=','members.id')
+    ->join('users','projects.member_id','=','users.id')
     ->get([
         'timesheets.*',
         'projects.projectname',
         'clients.clientname',
-        'members.fullname'
+        'users.name',
+        'categories.categoryname'
     ]);
     }
     public function GetTimesheet($id)
@@ -28,12 +29,12 @@ class TimesheetController extends Controller
         ->join('projects','timesheets.project_id','=','projects.id')
         ->join('categories','timesheets.category_id','=','categories.id')
         ->join('clients','timesheets.client_id','=','clients.id')
-        ->join('members','projects.member_id','=','members.id')
+        ->join('users','projects.member_id','=','users.id')
         ->get([
             'timesheets.*',
             'projects.projectname',
             'clients.clientname',
-            'members.fullname'
+            'users.name'
         ]);
     }
     public function PostTimesheet(Request $request)

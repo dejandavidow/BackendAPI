@@ -29,30 +29,30 @@ Route::put('/Categories/{id}',[CategoryController::class,'UpdateCategory']);
 Route::delete('/Categories/{id}',[CategoryController::class,'DeleteCategory']);
 Route::get('Search',[CategoryController::class,'Search']);
 
-Route::get('/Clients',[ClientController::class,'GetClients'])->middleware('auth:sanctum');;
-Route::get('/Clients/{id}',[ClientController::class,'GetClient'])->middleware('auth:sanctum');;
-Route::post('/Clients',[ClientController::class,'PostClient'])->middleware('auth:sanctum');;
-Route::put('/Clients/{id}',[ClientController::class,'UpdateClient'])->middleware('auth:sanctum');;
-Route::delete('/Clients/{id}',[ClientController::class,'DeleteClient'])->middleware('auth:sanctum');;
-Route::get('/Search/Clients',[ClientController::class,'Search'])->middleware('auth:sanctum');;
+Route::get('/Clients',[ClientController::class,'GetClients']);
+Route::get('/Clients/{id}',[ClientController::class,'GetClient']);
+Route::post('/Clients',[ClientController::class,'PostClient']);
+Route::put('/Clients/{id}',[ClientController::class,'UpdateClient']);
+Route::delete('/Clients/{id}',[ClientController::class,'DeleteClient']);
+Route::get('/Search/Clients',[ClientController::class,'Search']);
 
-Route::get('/Members',[MemberController::class,'GetMembers'])->middleware('auth:sanctum');;
-Route::get('/Members/{id}',[MemberController::class,'GetMember'])->middleware('auth:sanctum');;
-Route::post('/Members',[MemberController::class,'PostMember'])->middleware('auth:sanctum');;
-Route::put('/Members/{id}',[MemberController::class,'UpdateMember'])->middleware('auth:sanctum');;
-Route::delete('/Members/{id}',[MemberController::class,'DeleteMember'])->middleware('auth:sanctum');;
-Route::get('/Search/Members',[MemberController::class,'SearchMembers'])->middleware('auth:sanctum');;
+Route::get('/Members',[MemberController::class,'GetMembers']);
+Route::get('/Members/{id}',[MemberController::class,'GetMember']);
+Route::post('/Members',[MemberController::class,'PostMember']);
+Route::put('/Members/{id}',[MemberController::class,'UpdateMember']);
+Route::delete('/Members/{id}',[MemberController::class,'DeleteMember']);
+Route::get('/Search/Members',[MemberController::class,'SearchMembers']);
 
-Route::get('/Projects',[ProjectController::class,'GetProjects'])->middleware('auth:sanctum');;
-Route::get('/Projects/{id}',[ProjectController::class,'GetProject'])->middleware('auth:sanctum');;
-Route::post('/Projects',[ProjectController::class,'PostProject'])->middleware('auth:sanctum');;
-Route::put('/Projects/{id}',[ProjectController::class,'UpdateProject'])->middleware('auth:sanctum');;
-Route::delete('/Projects/{id}',[ProjectController::class,'DeleteProject'])->middleware('auth:sanctum');;
-Route::get('/Search/Projects',[ProjectController::class,'SearchProjects'])->middleware('auth:sanctum');;
+Route::get('/Projects',[ProjectController::class,'GetProjects']);
+Route::get('/Projects/{id}',[ProjectController::class,'GetProject']);
+Route::post('/Projects',[ProjectController::class,'PostProject']);
+Route::put('/Projects/{id}',[ProjectController::class,'UpdateProject']);
+Route::delete('/Projects/{id}',[ProjectController::class,'DeleteProject']);
+Route::get('/Search/Projects',[ProjectController::class,'SearchProjects']);
 
-Route::get('/Timesheets',[TimesheetController::class,'GetTimesheets'])->middleware('auth:sanctum');;
-Route::get('/Timesheets/{id}',[TimesheetController::class,'GetTimesheet'])->middleware('auth:sanctum');;
-Route::post('/Timesheets',[TimesheetController::class,'PostTimesheet'])->middleware('auth:sanctum');;
+Route::get('/Timesheets',[TimesheetController::class,'GetTimesheets']);
+Route::get('/Timesheets/{id}',[TimesheetController::class,'GetTimesheet']);
+Route::post('/Timesheets',[TimesheetController::class,'PostTimesheet']);
 
 Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
